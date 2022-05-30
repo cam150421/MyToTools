@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="styles/login.css">
+{% endblock %}
+
+{% block body %}
+
+<div class="connexion">
+
+    <form method="post" action="{{ path('app_login') }}" class=" titre col-4 offset-4 form">
+        <h1>Bienvenue sur MyToTool</h1>
+        <div class="mb-3">
+            <label for="InputEmail1" class="form-label">Adresse Mail</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="identifiant">
+        </div>
+        <button type="submit" class="boutonconnexion "  value="Connexion">Connexion</button>
+    </form>
+
+</div>
+
+{% endblock %}

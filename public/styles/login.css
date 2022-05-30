@@ -1,0 +1,38 @@
+body {
+    background-image: url("../images/IMG_0031.png");
+    background-size: 1550px;
+
+}
+
+h1 {
+    text-align: center;
+    font-size:25px;
+    margin-bottom: 20px;
+}
+
+.connexion {
+    margin-top: 15rem;
+}
+
+.titre {
+    font-family: Questrial;
+    color: white;
+    font-size: 14px;
+   margin-top: 10px;
+}
+
+.form {
+    background: rgba(80, 149, 148, 0.9);
+    padding: 20px 20px 20px 20px;
+    border-radius: 50px;
+
+}
+
+.boutonconnexion {
+    background-color:#2e5857;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius:50px;
+   text-align: center;
+}

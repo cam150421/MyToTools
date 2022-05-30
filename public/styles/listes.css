@@ -1,0 +1,178 @@
+.colonne-gauche {
+    background:rgba(80, 149, 148, 0.9);
+}
+
+h1 {
+    color: black;
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: Questrial;
+    text-align: center;
+}
+
+h5 {
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+    font-family: Questrial;
+}
+a:link
+{
+    text-decoration:none;
+}
+h2 {
+    color:blanchedalmond;
+    font-size: 20px;
+    margin-top: 15px;
+    font-family: Questrial;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 35px;
+}
+
+h3 {
+    color:#477a79;
+    font-size: 32px;
+    margin-top: 80px;
+    margin-left: 35px;
+    font-family: Questrial;
+    font-weight: bold;
+}
+
+h4 {
+    color:#477a79;
+    font-size: 28px;
+    margin-top: 45px;
+    margin-left: 35px;
+    font-family: Questrial;
+    font-weight: bold;
+}
+.colonne-droite{
+    background-image: url("../images/liste.png");
+    background-position: right 5% bottom 65%;
+    background-size: 1300px;
+}
+
+.imageprofil{
+    height: auto;
+    width: 40%;
+    margin-left: 60px;
+    border-radius:150px;
+    margin-top: 25px;
+}
+.nouvelletache{
+    margin-left: 35px;
+}
+.list-group{
+    margin-top: 2rem;
+    font-family: Questrial;
+    margin-bottom: 25px;
+}
+
+.list-group-flush {
+    margin-top:10rem;
+}
+
+.list-group-item.active{
+    background-color:#7D476E;
+    border-color: #7D476E;
+}
+.nouvelleliste{
+    color:black;
+    font-size: 18px;
+    font-family: Questrial;
+    text-align: center;
+    margin-left: 65px;
+    margin-top:70px;
+    margin-bottom: 10px;
+}
+
+.liste {
+    font-family: Questrial;
+    color: black;
+    border-radius: 50px;
+    padding: 5px;
+    border:none;
+    text-align: center;
+    margin-left: 25px;
+}
+.boutonliste{
+    color:white;
+    font-size: 15px;
+    background-color:#2e5857;
+    border:none;
+    font-family: Questrial;
+    border-radius: 50px;
+    margin-bottom: 3rem;
+    margin-left: 32px;
+}
+
+.supprimerliste{
+    color:white;
+    font-size: 15px;
+    background-color:#2e5857;
+    border:none;
+    font-family: Questrial;
+    border-radius: 50px;
+    margin-right: 50px;
+}
+
+.supprimertache {
+    color:white;
+    font-size: 15px;
+    background-color:#2e5857;
+    border:none;
+    font-family: Questrial;
+    border-radius: 50px;
+}
+.boutondeconnexion {
+    color:white;
+    font-size: 12px;
+    background-color:#2e5857;
+    border:none;
+    font-family: Questrial;
+    border-radius: 50px;
+    margin-left: 70px;
+    margin-bottom: 20px;
+}
+
+.form-control{
+    color:black;
+    font-size: 15px;
+    font-family: Questrial;
+    border-color:darkgrey;
+}
+
+.form-select-sm{
+    color:black;
+    font-size: 15px;
+    font-family: Questrial;
+    border-radius:5px;
+    padding:9px;
+    border-color:darkgrey;
+}
+
+#date{
+    color:black;
+    font-size: 15px;
+    font-family: Questrial;
+    border-radius:5px;
+    padding:6px;
+    border-color:darkgrey;
+}
+
+.btn-info{
+    color:white;
+    font-size: 18px;
+    background-color:#2e5857;
+    border:none;
+    font-family: Questrial;
+    border-radius: 50px;
+}
+
+.listetaches{
+    color:black;
+    font-size: 18px;
+    font-family: Questrial;
+    margin-top: 75px;
+}

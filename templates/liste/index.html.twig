@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listes{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset("styles/listes.css") }}">
+{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-2 colonne-gauche">
+            <img class="imageprofil" src="https://i.pinimg.com/564x/ad/49/8e/ad498e1d273fc016eb15d44deddd7b69.jpg">
+            <h1>{{ utilisateur.login }} </h1>
+            <a href="{{ path('app_logout') }}"><button class="boutondeconnexion">Déconnexion</button></a>
+            <a href="{{ path('app_dashboard') }}"><h2>Mon tableau de bord</h2></a>
+
+            <h1>Mes listes</h1>
+
+            <ul id="liste">
+                {% for liste in listes %}
+                    <li>
+                        <div class="row listes justify-content-start">
+                            <div class="col d-flex align-items-center justify-content-start">
+                                <a href="{{ path('app_liste_list', {listId: liste.id}) }}"><h5>{{ liste.nom }}</h5></a>
+                            </div>
+                            <button type="submit" class="supprimerliste col-9" data-listId="{{ liste.id }}">Supprimer la liste</button>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="row create_task">
+                <div class="col d-flex align-items-center justify-content-around hover_task">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="task_name" class="nouvelleliste">Nouvelle liste</label>
+                            <input type="text" class="liste" id="listenom" placeholder="Nom de la liste">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" id="ajouterliste" class="boutonliste">
+                                Créer une nouvelle liste</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-10 colonne-droite">
+
+            <h3>Mes taches</h3>
+
+            <ul class="listetaches">
+                {% for taches in listeDetails.taches %}
+                    <li id="li-{{ taches.id }}">
+                        <input class="form-check-input me-1 checkbox_task" type="checkbox" value="{{ taches.id }}" aria-label="..." {% if taches.active %} checked="checked" {% endif %}>
+                    {{ taches.nom }}
+                    <button type="submit" class="supprimertache" data-tacheId="{{ taches.id }}">Supprimer la tache</button>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h4>Nouvelle tache</h4>
+            <form method="post" class="col-11 d-flex align-items-center nouvelletache">
+                <input type="text" class="form-control" id="nomtache" placeholder="Nom de la tache">
+                <select class="form-select-sm" id="priorite_tache">
+                    <option selected>Priorité</option>
+                    <option value="1">Normale</option>
+                    <option value="2">Modérée</option>
+                    <option value="3">Urgente</option>
+                </select>
+                <select class="form-select-sm" id="liste_tache">
+                    <option selected>Choisir la liste</option>
+                    {% for liste in listes %}
+                        <option value="{{ liste.id }}">{{ liste.nom }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" class="btn btn-info" id="creertache" value="Créer la tache"/>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

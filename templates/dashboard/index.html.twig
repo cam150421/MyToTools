@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="styles/dashboard.css">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-2 colonne-gauche">
+                <img class="imageprofil" src="https://i.pinimg.com/564x/ad/49/8e/ad498e1d273fc016eb15d44deddd7b69.jpg">
+                <h1>{{ utilisateur.login }} </h1>
+                <a href="{{ path('app_logout') }}"><button class="boutondeconnexion">Déconnexion</button></a>
+                <a href="{{ path('app_dashboard') }}"><h2>Mon tableau de bord</h2></a>
+
+                <h1>Mes listes</h1>
+
+                <ul id="liste">
+                    {% for liste in listes %}
+                        <li>
+                            <div class="row listes justify-content-start">
+                                <div class="col d-flex align-items-center justify-content-start">
+                                    <a href="{{ path('app_liste_list', {listId: liste.id}) }}"><h5>{{ liste.nom }}</h5></a>
+                                </div>
+                                <button type="submit" class="supprimerliste col-9" data-listId="{{ liste.id }}">Supprimer la liste</button>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="row create_task">
+                    <div class="col d-flex align-items-center justify-content-around hover_task">
+                        <form method="post">
+                            <div class="mb-3">
+                                <label for="task_name" class="nouvelleliste">Nouvelle liste</label>
+                                <input type="text" class="liste" id="listenom" placeholder="Nom de la liste">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" id="ajouterliste" class="boutonliste">
+                                    Créer une nouvelle liste</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-10 colonne-droite">
+
+                <div class="col-12 tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-journee" role="tabpanel" aria-labelledby="list-journee-list">
+                        <h3>Bienvenue sur MyToTool</h3>
+
+                        <div>
+                            <h6>Bienvenue sur votre tout nouvel espace personnel MyToTool ! <br>
+                                A l'occasion de ces quinze année d'existence dans la vente de savonette bio, votre entreprise Safrio <br>
+                                vous propose une toute nouvelle application où vous pourrez
+                                dès à présent via votre espace personnel:
+                                <li>Ajouter et supprimer des tâches</li>
+                                <li>Ajouter et supprimer des listes </li>
+                                <li>Lier vos tâches à des listes spécifiques</li>
+
+                            <br>
+                                Commencez dès à présent !
+
+                                <b>L'équipe Safrio</b>
+
+                            </h6>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="list-semaine" role="tabpanel" aria-labelledby="list-semaine-list">beuh</div>
+                    <div class="tab-pane fade" id="list-mois" role="tabpanel" aria-labelledby="list-mois-list">...</div>
+                </div>
+
+                <h4>Nouvelle tache</h4>
+                <form method="post" class="col-11 d-flex align-items-center nouvelletache">
+                    <input type="text" class="form-control" id="nomtache" placeholder="Nom de la tache">
+                    <select class="form-select-sm" id="priorite_tache">
+                        <option selected>Priorité</option>
+                        <option value="1">Normale</option>
+                        <option value="2">Modérée</option>
+                        <option value="3">Urgente</option>
+                    </select>
+                    <select class="form-select-sm" id="liste_tache">
+                        <option selected>Choisir la liste</option>
+                        {% for liste in listes %}
+                            <option value="{{ liste.id }}">{{ liste.nom }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" class="btn btn-info" id="creertache" value="Créer la tache"/>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
